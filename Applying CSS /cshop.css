@@ -1,0 +1,109 @@
+body {
+background-color: linen;
+}
+
+h1 { 
+color: rgb(6,97,4);
+margin-left: 40px;
+text-align: center;
+}
+
+#coffee {
+color: rgb(6,97,4);
+}
+
+#shop {
+color: yellow;
+}
+
+ul {
+list-style-type: none;
+margin: 15px;
+}
+
+li.h { 
+display: block;
+float: left;
+text-align: center;
+margin: 10px;
+}
+
+li a:hover {
+background-color: green;
+color: red;
+}
+
+.roundedcorner {
+background-color: linen;
+border: 5px solid green;
+}
+
+.squaredlist {
+list-style-type: square;
+text-align: center;
+}
+
+p {
+text-align:justify;
+}
+
+#firstheading {
+color: #066104;
+}
+
+#secondheading { 
+color: hsl(119,92%,20%);
+}
+
+#thirdheading {
+color: green;
+}
+
+#cappuccino { 
+text-decoration: line-through;
+}
+
+#expresso { 
+color: red;
+}
+
+table, th, td {
+margin-left: auto;
+margin-right: auto;
+border: 1px solid black;
+}
+
+h4 { 
+text-align: center;
+color: maroon;
+}
+
+#email {
+font: 14px Times New Roman, serif;
+color: red;
+}
+
+#phone {
+font: 16px Courier New, monospace;
+color: cyan;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

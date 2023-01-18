@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Island Breeze, Stevens Campus</title>
+        <link rel="stylesheet" href="restaurant.css">
+    </head>
+
+    <body>
+        <h1 class ='center'><span style="color: darkgreen">Island</span> <span style="color: lightblue">Breeze</span>, Stevens Campus</h1>
+
+            <ul>
+                <li class='nav'><a href='/sp2022_s215A/kdawes/index2.html'>Home</a></li>
+                <li class="nav"><a href='/sp2022_s215A/kdawes/about2.html' >About</a></li>
+                <li class="nav"><a href='/sp2022_s215A/kdawes/contact2.html'>Contact Us</a></li>
+            </ul>
+        <br>
+        <form id = 'contact'>
+            <label for='name'>Name</label><br>
+            <input type="text" id=" name" name="name"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name = 'email'><br>
+            <label for="number">Phone Number</label><br>
+            <input type="number" id='number' name="number"><br>
+            <label for="message">Message</label><br>
+            <input type="text" id="message" name="message"><br>
+            <input type="submit" value="submit" onclick="printMe()">
+        </form>
+        <p id ='message'></p>
+    <script>
+        function printMe() {
+            document.getElementByID('message"').innnerHTML = 'your message has been received and we will respond to you shortly';
+        }
+    </script>
+    </body>

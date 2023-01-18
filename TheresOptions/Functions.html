@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functions for There's Options</title>
+        <link rel="stylesheet" href="restaurant.css">
+    </head>
+
+    <body> 
+        <p id="demo"></p>
+        <h3 id="test">why</h3>
+        <h3 id="search"></h3>
+        <button onclick="search(); ED();">Search</button>
+        <button onclick="comparison();">Go</button>
+        <h4 id="output"></h4>
+
+        <script>
+            var text2 = require("~/desktop/academics/ssw215/assignments/TheresOptions/company_tickers_exchange.json");
+
+            const text = {"fields":["cik","name","ticker","exchange"],"data":[[320193,"Apple Inc.","AAPL","Nasdaq"],
+            [789019,"MICROSOFT CORP","MSFT","Nasdaq"],[1652044,"Alphabet Inc.","GOOGL","Nasdaq"]]};
+            const myObj = JSON.stringify(text);
+            const myObj2 = JSON.parse(myObj);
+            document.getElementById("demo").innerHTML = myObj2.data[0][1];
+
+            
+
+
+
+            function search(){
+                document.getElementById("search").innerHTML = prompt("Search the company you'd like to find, Apple Inc.");
+            }
+
+            function ED(first, second) {
+
+                    if (first == '') {
+                        return second.length;
+                    }
+                    else if (second == '') {
+                        return first.length;
+                    }
+                    else if (first[0] == second[0]) {
+                        return ED(first.slice(1), second.slice(1));
+                    }
+                    else {
+                        let subs = 1 + ED(first.slice(1), second.slice(1));
+                        let del = 1 + ED(first.slice(1), second);
+                        let ins = 1 + ED(first, second.slice(1));
+                        editDistance =  Math.min(subs, del, ins);
+                        return editDistance;
+                    }  
+
+            }
+
+            function comparison(){
+                let user = document.getElementById("search").innerHTML;
+                let limit = myObj2.data.length;
+                let output = [];
+            
+                for (let i = 0; i < limit; i ++) {
+                    let list = myObj2.data[i];
+                    let word = myObj2.data[i][1];
+                    if (ED(user, word) < 6){
+                        console.log(word);
+                        output.push(word);
+                    }
+                    
+                }
+                
+                if (output.length == 0) {
+                    document.getElementById('output').innerHTML = 'There is no matching company to your query';
+                }
+                else{
+                    document.getElementById('output').innerHTML = output;
+                }
+            }
+
+            
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Island Breeze, Stevens Campus</title>
+        <link rel="stylesheet" href="restaurant.css">
+    </head>
+
+    <body>
+        <h1 class ='center'><span style="color: darkgreen">Island</span> <span style="color: lightblue">Breeze</span>, Stevens Campus</h1>
+
+        <ul>
+            <li class='nav'><a href='/sp2022_s215A/kdawes/index2.html'>Home</a></li>
+            <li class="nav"><a href='/sp2022_s215A/kdawes/about2.html' >About</a></li>
+            <li class="nav"><a href='/sp2022_s215A/kdawes/contact2.html'>Contact Us</a></li>
+        </ul>
+        <br>
+        <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueJZSdCaqiPdAq7SDDvo8Q6jdUGHwu-YZCA&usqp=CAU" alt="carribean platter" ></center>
+
+        <h3 class ='center breakfast'>Breakfast Menu</h3>
+        <table id ='breakfast'>
+            <tr>
+                <th>Food Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Ackee and Saltfish</td>
+                <td>12.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Cornbeef and dumplings</td>
+                <td>10.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+        </table>
+        <button onclick ='currency(); subTotal();'' class ='button'>Pound to Dollar </button>
+
+        <h3 class="center lunch">Lunch Menu</h3>
+        <table id="lunch">
+            <tr>
+                <th>Food Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Ackee and Saltfish</td>
+                <td>12.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Cornbeef and dumplings</td>
+                <td>10.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Stew Chicken and Rice</td>
+                <td>14.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Jerk Chicken and rice</td>
+                <td>11.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+        </table>
+        <button onclick ='currency(); subTotal();' class ='button'>Pound to Dollar </button>
+
+        <h3 class="center dinner">Dinner Menu</h3>
+        <table id ='dinner'>
+            <tr>
+                <th>Food Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Stew Chicken and Rice</td>
+                <td>14.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Jerk Chicken and rice</td>
+                <td>12.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+
+            <tr>
+                <td>Curry Chicken and rice</td>
+                <td>10.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td>Rasta Pasta</td>
+                <td>8.00</td>
+                <td><button onclick='cart(this); subTotal();' class ='button'>Add to cart</button></td>
+            </tr>
+        </table>
+        <button onclick ='currency(); subTotal();' class ='button'>Pound to Dollar </button>
+
+        <h4 class= "center">Cart</h4>
+        <table id = 'cart'></table>
+        <p id= 'val'></p>
+
+        <button onclick="placeOrder()" class = 'button'>Place your oder here</button>
+        <p id="orderConfirm"></p>
+
+
+        <script>
+        
+        
+        
+        function cart(point) {
+
+            var row3 = point.parentNode.parentElement;
+            var cartTable3 = document.getElementById('cart');
+            var cartRow3 = cartTable3.insertRow(0);
+            var name3 = cartRow3.insertCell(0);
+            var price3 = cartRow3.insertCell(1);
+          	name3.innerHTML = row3.childNodes[1].innerHTML;
+            price3.innerHTML = row3.childNodes[3].innerHTML;
+           
+        }
+
+        function subTotal() {
+            var table = document.getElementById('cart');
+            let sum2 = Array.from(table.rows).reduce((total, row) =>{return total + parseFloat(row.cells[1].innerHTML);
+            }, 0);
+            document.getElementById('val').innerHTML = "SubTotal = $" + sum2.toFixed(2);
+        }
+
+        function currency() {
+   		    var breakfast = document.getElementById('breakfast');
+            var price = (breakfast.rows[1].cells[1].innerHTML)*.71;
+            breakfast.rows[1].cells[1].innerHTML = price.toFixed(2);
+            var price2 = (breakfast.rows[2].cells[1].innerHTML)*.71;
+            breakfast.rows[2].cells[1].innerHTML = price2.toFixed(2);
+
+
+            var price3 = lunch.rows[1].cells[1].innerHTML*.71;
+            lunch.rows[1].cells[1].innerHTML = price3.toFixed(2);
+            var price4 = lunch.rows[2].cells[1].innerHTML*.71;
+            lunch.rows[2].cells[1].innerHTML = price4.toFixed(2);
+            var price5 = lunch.rows[3].cells[1].innerHTML*.71;
+            lunch.rows[3].cells[1].innerHTML = price5.toFixed(2);
+            var price6 = lunch.rows[4].cells[1].innerHTML*.71;
+            lunch.rows[4].cells[1].innerHTML = price6.toFixed(2);
+
+            var price7 = dinner.rows[1].cells[1].innerHTML*.71;
+            dinner.rows[1].cells[1].innerHTML = price7.toFixed(2);
+            var price8 = dinner.rows[2].cells[1].innerHTML*.71;
+            dinner.rows[2].cells[1].innerHTML = price8.toFixed(2);
+            var price9 = dinner.rows[3].cells[1].innerHTML*.71;
+            dinner.rows[3].cells[1].innerHTML = price9.toFixed(2);
+            var price10 = dinner.rows[4].cells[1].innerHTML*.71;
+            dinner.rows[4].cells[1].innerHTML = price10.toFixed(2);
+
+        }
+
+            //var price2 = (breakfast.rows[2].cells[1].innerHTML)/.71;
+            //breakfast.rows[2].cells[1].innerHTML = price2.toFixed(2);
+
+
+
+        function placeOrder() {
+            document.getElementById('orderConfirm').innerHTML = "We've received your order. Your order will be ready for pick up in 5 minutes";
+            var deleteCart = document.getElementById('cart');
+                while(deleteCart.firstChild){
+                    deleteCart.removeChild(deleteCart.firstChild)
+                }
+
+            }
+            
+
+        </script>
+    </body>
+</html>
